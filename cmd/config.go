@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/afero"
 
-	"github.com/aswinkarthik/csvdiff/pkg/digest"
+	"github.com/rickdana/csvdiff/pkg/digest"
 )
 
 // Context is to store all command line Flags.
@@ -18,8 +18,8 @@ type Context struct {
 	valueColumnPositions   []int
 	includeColumnPositions []int
 	format                 string
-	baseFilename           string
-	deltaFilename          string
+	BaseFilename           string
+	DeltaFilename          string
 	baseFile               afero.File
 	deltaFile              afero.File
 	recordCount            int
@@ -77,8 +77,8 @@ func NewContext(
 		valueColumnPositions:   valueColumnPositions,
 		includeColumnPositions: includeColumnPositions,
 		format:                 format,
-		baseFilename:           baseFilename,
-		deltaFilename:          deltaFilename,
+		BaseFilename:           baseFilename,
+		DeltaFilename:          deltaFilename,
 		baseFile:               baseFile,
 		deltaFile:              deltaFile,
 		recordCount:            baseRecordCount,

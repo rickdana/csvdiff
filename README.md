@@ -1,3 +1,4 @@
+# DISCLAIMER : This is a clone of the official csv diff repo (github.com/aswinkarthik/csvdiff). Do not use it in prod
 # csvdiff
 
 [![Build Status](https://travis-ci.org/aswinkarthik/csvdiff.svg?branch=master)](https://travis-ci.org/aswinkarthik/csvdiff)
