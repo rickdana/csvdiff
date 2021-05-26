@@ -31,7 +31,7 @@ import (
 	"github.com/fatih/color"
 	"github.com/spf13/afero"
 
-	"github.com/aswinkarthik/csvdiff/pkg/digest"
+	"github.com/rickdana/csvdiff/pkg/digest"
 	"github.com/spf13/cobra"
 )
 
@@ -62,7 +62,7 @@ Most suitable for csv files created from database tables`,
 		fs := afero.NewOsFs()
 		baseFilename := args[0]
 		deltaFilename := args[1]
-		runeSeparator, err := parseSeparator(separator)
+		runeSeparator, err := ParseSeparator(separator)
 		if err != nil {
 			return err
 		}
@@ -91,11 +91,11 @@ Most suitable for csv files created from database tables`,
 func runContext(ctx *Context, outputStream, errorStream io.Writer) error {
 	baseConfig, err := ctx.BaseDigestConfig()
 	if err != nil {
-		return fmt.Errorf("error opening base-file %s: %v", ctx.baseFilename, err)
+		return fmt.Errorf("error opening base-file %s: %v", ctx.BaseFilename, err)
 	}
 	deltaConfig, err := ctx.DeltaDigestConfig()
 	if err != nil {
-		return fmt.Errorf("error opening delta-file %s: %v", ctx.deltaFilename, err)
+		return fmt.Errorf("error opening delta-file %s: %v", ctx.DeltaFilename, err)
 	}
 	defer ctx.Close()
 
@@ -148,7 +148,7 @@ func timeTrack(start time.Time, name string) {
 	_, _ = fmt.Fprintln(os.Stderr, fmt.Sprintf("%s took %s", name, elapsed))
 }
 
-func parseSeparator(sep string) (rune, error) {
+func ParseSeparator(sep string) (rune, error) {
 	if strings.HasPrefix(sep, "\\t") {
 		return '\t', nil
 	}

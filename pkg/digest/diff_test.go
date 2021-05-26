@@ -2,7 +2,7 @@ package digest_test
 
 import (
 	"fmt"
-	"github.com/aswinkarthik/csvdiff/pkg/digest"
+	"github.com/rickdana/csvdiff/pkg/digest"
 	"github.com/stretchr/testify/assert"
 	"strings"
 	"testing"
@@ -36,7 +36,7 @@ func TestDiff(t *testing.T) {
 				}
 
 				deltaConfig := &digest.Config{
-					Reader:     strings.NewReader(strings.ReplaceAll(delta,",", sep)),
+					Reader:     strings.NewReader(strings.ReplaceAll(delta, ",", sep)),
 					Key:        []int{0},
 					Separator:  sepRune,
 					LazyQuotes: false,
